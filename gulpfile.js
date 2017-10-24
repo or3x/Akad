@@ -19,7 +19,7 @@ var paths= {
 		img: "src/img/**/*.*",
 		fonts: "src/fonts/**/*.*",
 		js_main: "src/js/script.js",
-		js: "src/js/",		
+		js: "src/js/",
 		images: "src/img/**/*.*"
 	},
 	dest: {
@@ -35,7 +35,9 @@ var paths= {
 		js: "src/**/*.js"
 	},
 	bootstrap: './node_modules/bootstrap/dist/js/',
-	jquery: './node_modules/jquery/dist/'
+	jquery: './node_modules/jquery/dist/',
+	isotope: './node_modules/isotope-layout/dist'
+
 }
 
 gulp.task('css', function(){
@@ -82,7 +84,7 @@ gulp.task('js', function () {
 		.pipe(include({
 				extensions: "js",
 				hardFail: true,
-				includePaths: [paths.bootstrap, paths.jquery, paths.src.js]
+				includePaths: [paths.isotope, paths.bootstrap, paths.jquery, paths.src.js]
 			}).on('error', notify.onError(
 					{
 						message: "<%= error.message %>",
@@ -132,7 +134,7 @@ gulp.task('refresh', function(){
 });
 
 gulp.task('build', [
-	'html', 
+	'html',
 	'css',
 	'images',
 	'js'
